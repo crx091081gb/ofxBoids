@@ -146,6 +146,22 @@ public:
 		boids.push_back(b);//boids.add(b);
 		return this;
 	}
+    
+    Flock2d * add(float lx, float ly, float vx, float vy) {
+        Boid2d * b = new Boid2d();//(this); // first constructor is zeroing nicely
+        b->setFlock(this);
+        
+        b->setLoc(lx, ly);
+        
+        b->setVel(vx, vy);
+        
+        b->attr = attraction + ofRandom(-attractiondeviation, attractiondeviation);
+        
+        boids.push_back(b);//boids.add(b);
+        return this;
+    }
+    
+
 
 	
 	Flock2d * setDt(const float d){
